@@ -28,7 +28,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
     - name: Parse Trx files
-      uses: NasAmin/trx-parser@v0.5
+      uses: NasAmin/trx-parser
       id: trx-parser
       with:
         TRX_PATH: ${{ github.workspace }}/Tests/TestResults #This should be the path to your TRX files
