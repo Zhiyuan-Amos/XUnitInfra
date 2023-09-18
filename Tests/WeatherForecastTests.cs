@@ -26,6 +26,6 @@ public class BasicTests
     {
         var client = _factory.CreateClient();
         var response = await client.GetAsync("/");
-        response.EnsureSuccessStatusCode();
+        Assert.True(false);
     }
 }
