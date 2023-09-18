@@ -28,9 +28,9 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
     - name: Publish Test Results
-      uses: dorny/test-reporter@v1
+      uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
-        name: Test Results
-        path: Tests/TestResults/test-results.trx
-        reporter: dotnet-trx
+        files: |
+          Tests/TestResults/test-results.trx
+        report_suite_logs: "info"
