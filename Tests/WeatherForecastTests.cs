@@ -10,7 +10,7 @@ public class BasicTests
     public BasicTests(CustomWebApplicationFactory factory, ITestOutputHelper output)
     {
         _factory = factory;
-        // _factory.Output = output;
+        _factory.Output = output;
     }
 
     [Fact]
