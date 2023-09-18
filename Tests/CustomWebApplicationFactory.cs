@@ -24,7 +24,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             services.AddLogging(b =>
             {
                 b.ClearProviders();
-                b.AddXUnit(Output, options => options.TimestampFormat = "O");
+                // b.AddXUnit(Output, options => options.TimestampFormat = "O");
             });
         });
     }
