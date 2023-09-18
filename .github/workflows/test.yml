@@ -34,4 +34,3 @@ jobs:
         name: Test Results
         path: Tests/TestResults/test-results.trx
         reporter: dotnet-trx
-        only-summary: 'false'
