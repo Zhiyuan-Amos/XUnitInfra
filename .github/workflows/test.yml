@@ -33,4 +33,4 @@ jobs:
       with:
         files: |
           Tests/TestResults/test-results.trx
-        report_suite_logs: info
+        report_suite_logs: "info"
