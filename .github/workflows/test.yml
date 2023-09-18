@@ -25,10 +25,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test and Report
-      uses: zyborg/dotnet-tests-report@v1
+    - name: Test
+      run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
+    - name: Parse Trx files
+      uses: NasAmin/trx-parser@v0.1
+      id: trx-parser
       with:
-        project_path: Tests
-        report_name: my_project_tests
-        report_title: My Project Tests
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        TRX_PATH: ${{ github.workspace }}/Tests/TestResults #This should be the path to your TRX files
+        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
