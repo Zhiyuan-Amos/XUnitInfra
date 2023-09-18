@@ -28,7 +28,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --logger "trx;LogFileName=test-results.trx"
     - name: Parse Trx files
-      if: always()
       uses: NasAmin/trx-parser@v0.5.0
       id: trx-parser
       with:
