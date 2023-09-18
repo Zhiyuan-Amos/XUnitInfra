@@ -1,9 +1,4 @@
-﻿using Serilog;
-
-var builder = WebApplication.CreateBuilder(args);
-builder.Host.UseSerilog((_, _, configuration) => {
-    configuration.WriteTo.Console();
-});
+﻿var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 var app = builder.Build();
