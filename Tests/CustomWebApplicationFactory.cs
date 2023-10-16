@@ -1,5 +1,5 @@
+using Meziantou.Extensions.Logging.Xunit;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Serilog;
 using Xunit.Abstractions;
 
 namespace Tests;
@@ -10,22 +10,18 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     protected override IHost CreateHost(IHostBuilder builder)
     {
-        builder.UseSerilog((_, _, configuration) => {
-            configuration.WriteTo.TestOutput(Output);
-        });
+        // builder.UseSerilog((_, _, configuration) => {
+        //     configuration.WriteTo.TestOutput(Output);
+        // });
         return base.CreateHost(builder);
     }
 
-    /* protected override void ConfigureWebHost(IWebHostBuilder builder)
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.ConfigureServices(services =>
+        builder.ConfigureLogging(b =>
         {
-            // https://andrewlock.net/converting-integration-tests-to-net-core-3/
-            services.AddLogging(b =>
-            {
-                b.ClearProviders();
-                b.AddXUnit(Output, options => options.TimestampFormat = "O");
-            });
+            b.ClearProviders();
+            b.Services.AddSingleton<ILoggerProvider>(new XUnitLoggerProvider(Output));
         });
-    } */
+    }
 }
