@@ -8,16 +8,9 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     public ITestOutputHelper Output { get; set; } = null!;
 
-    protected override IHost CreateHost(IHostBuilder builder)
-    {
-        // builder.UseSerilog((_, _, configuration) => {
-        //     configuration.WriteTo.TestOutput(Output);
-        // });
-        return base.CreateHost(builder);
-    }
-
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
+        // https://www.youtube.com/watch?v=dasbRVz5MXo&t=553s
         builder.ConfigureLogging(b =>
         {
             b.ClearProviders();

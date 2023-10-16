@@ -2,8 +2,7 @@
 
 namespace Tests;
 
-public class BasicTests 
-    : IClassFixture<CustomWebApplicationFactory>
+public class BasicTests : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly CustomWebApplicationFactory _factory;
 

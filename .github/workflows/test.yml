@@ -34,3 +34,7 @@ jobs:
         files: |
           Tests/test_result.xml
         report_suite_logs: "info"
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: Tests/test_result.xml
