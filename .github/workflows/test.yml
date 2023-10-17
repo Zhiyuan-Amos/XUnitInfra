@@ -33,7 +33,6 @@ jobs:
       with:
         files: |
           Tests/test_result.xml
-        report_suite_logs: "info"
     - uses: actions/upload-artifact@v3
       if: always()
       with:
